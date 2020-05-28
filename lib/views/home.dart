@@ -6,8 +6,12 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  final Color _mainColor = Colors.red[900];
-  final double _padding = 20;
+  final _margins = 20.0;
+  final _mainColor = Colors.red[900];
+  final _decoration = BoxDecoration(color: Colors.white);
+
+  final _redText = TextStyle(color: Colors.red[900]);
+  final _greenText = TextStyle(color: Colors.green[700]);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +19,7 @@ class _HomeViewState extends State<HomeView> {
       color: _mainColor,
       child: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(_padding),
+          padding: EdgeInsets.all(_margins),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
@@ -30,17 +34,32 @@ class _HomeViewState extends State<HomeView> {
 
   Widget buildLastWorkoutCard() {
     return Container(
-      color: Colors.white,
-      margin: EdgeInsets.only(bottom: _padding),
-      child: SizedBox(height: 100, child: Text("Last workout")),
+      decoration: _decoration,
+      margin: EdgeInsets.only(bottom: _margins),
+      padding: EdgeInsets.all(_margins/2),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text("Last Workout (5/24)", textScaleFactor: 1.2),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text("SQ 135 lb ✔", style: _greenText),
+              Text("BP 135 lb ✘", style: _redText),
+              Text("DL 135 lb ✔", style: _greenText),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
   Widget buildNextWorkoutCard() {
     return Expanded(
       child: Container(
-        color: Colors.white,
-        child: Text("Next workout"),
+        decoration: _decoration,
+        padding: EdgeInsets.all(_margins/2),
+        child: Text("Next Workout", textScaleFactor: 1.2),
       ),
     );
   }
