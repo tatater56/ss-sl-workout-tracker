@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 
+import 'views/home.dart';
+import 'views/history.dart';
+import 'views/settings.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,10 +13,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _appbarTitle = "SS/SL Tracker";
+  final String _appbarTitle = "SS/SL Tracker";
   int _pageIndex = 0;
   PageController _pageController;
-  List<Color> _appColor = [Colors.red[900], Colors.blue[900], Colors.orange[900]];
 
   @override
   void initState() {
@@ -24,9 +26,13 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primaryColor: _appColor[_pageIndex]),
+      theme: ThemeData(brightness: Brightness.dark),
       home: Scaffold(
-        appBar: AppBar(title: Text(_appbarTitle), elevation: 0, backgroundColor: Colors.transparent),
+        appBar: AppBar(
+          title: Text(_appbarTitle),
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+        ),
         extendBodyBehindAppBar: true,
         extendBody: true,
         body: Center(
@@ -36,17 +42,18 @@ class _MyAppState extends State<MyApp> {
               setState(() => _pageIndex = index);
             },
             children: <Widget>[
-              for(int i in [0,1,2])
-                Container(color: _appColor[i])
+              HomeView(),
+              HistoryView(),
+              SettingsView(),
             ],
           ),
         ),
-
         bottomNavigationBar: BottomNavyBar(
           selectedIndex: _pageIndex,
           onItemSelected: (index) {
             setState(() => _pageIndex = index);
-            _pageController.animateToPage(index, duration: Duration(milliseconds: 500), curve: Curves.ease);
+            _pageController.animateToPage(index,
+                duration: Duration(milliseconds: 300), curve: Curves.ease);
           },
           backgroundColor: Colors.transparent,
           showElevation: false,
