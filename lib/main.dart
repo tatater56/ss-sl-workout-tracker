@@ -10,10 +10,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _tabTitle = "SS/SL Tracker";
+  String _appbarTitle = "SS/SL Tracker";
   int _pageIndex = 0;
   PageController _pageController;
-  List<Color> _appColor = [Colors.red, Colors.blue, Colors.green];
+  List<Color> _appColor = [Colors.red[900], Colors.blue[900], Colors.orange[900]];
 
   @override
   void initState() {
@@ -26,8 +26,9 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       theme: ThemeData(primaryColor: _appColor[_pageIndex]),
       home: Scaffold(
-        appBar: AppBar(title: Text(_tabTitle)),
-
+        appBar: AppBar(title: Text(_appbarTitle), elevation: 0, backgroundColor: Colors.transparent),
+        extendBodyBehindAppBar: true,
+        extendBody: true,
         body: Center(
           child: PageView(
             controller: _pageController,
@@ -45,9 +46,10 @@ class _MyAppState extends State<MyApp> {
           selectedIndex: _pageIndex,
           onItemSelected: (index) {
             setState(() => _pageIndex = index);
-            _pageController.jumpToPage(index);
+            _pageController.animateToPage(index, duration: Duration(milliseconds: 500), curve: Curves.ease);
           },
-          backgroundColor: _appColor[_pageIndex],
+          backgroundColor: Colors.transparent,
+          showElevation: false,
           items: [
             buildBottomNavyBarItem(Icons.home, "Home"),
             buildBottomNavyBarItem(Icons.history, "History"),
