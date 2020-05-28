@@ -26,9 +26,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        textTheme: TextTheme(bodyText2: TextStyle(fontSize: 16.0)),
+      ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text(_appbarTitle),
+          title: Text(_appbarTitle, style: TextStyle(fontSize: 24.0)),
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
