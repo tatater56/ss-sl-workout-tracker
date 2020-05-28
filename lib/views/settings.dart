@@ -13,7 +13,7 @@ class _SettingsViewState extends State<SettingsView> {
     return Container(
       color: _mainColor,
       child: SafeArea(
-        child: Center(child: Text("settings")),
+        child: Center(child: Text('settings')),
       ),
     );
   }

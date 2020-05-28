@@ -13,7 +13,7 @@ class _HomeViewState extends State<HomeView> {
     return Container(
       color: _mainColor,
       child: SafeArea(
-        child: Center(child: Text("home")),
+        child: Center(child: Text('home')),
       ),
     );
   }

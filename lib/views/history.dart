@@ -13,7 +13,7 @@ class _HistoryViewState extends State<HistoryView> {
     return Container(
       color: _mainColor,
       child: SafeArea(
-        child: Center(child: Text("history")),
+        child: Center(child: Text('history')),
       ),
     );
   }

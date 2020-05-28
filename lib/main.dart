@@ -13,7 +13,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final String _appbarTitle = "SS/SL Tracker";
+  final String _appbarTitle = 'SS / SL Workout Tracker';
   int _pageIndex = 0;
   PageController _pageController;
 
@@ -53,14 +53,16 @@ class _MyAppState extends State<MyApp> {
           onItemSelected: (index) {
             setState(() => _pageIndex = index);
             _pageController.animateToPage(index,
-                duration: Duration(milliseconds: 300), curve: Curves.ease);
+                duration: Duration(milliseconds: 270), curve: Curves.ease);
           },
           backgroundColor: Colors.transparent,
           showElevation: false,
+          curve: Curves.ease,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           items: [
-            buildBottomNavyBarItem(Icons.home, "Home"),
-            buildBottomNavyBarItem(Icons.history, "History"),
-            buildBottomNavyBarItem(Icons.settings, "Settings"),
+            buildBottomNavyBarItem(Icons.home, 'HOME'),
+            buildBottomNavyBarItem(Icons.history, 'HISTORY'),
+            buildBottomNavyBarItem(Icons.settings, 'SETTINGS'),
           ],
         ),
       ),
