@@ -89,6 +89,8 @@ class _HomeViewState extends State<HomeView> {
                   Spacer(),
                   MaterialButton(
                     onPressed: () {},
+                    splashColor: _mainColor.withOpacity(.1),
+                    highlightColor: _mainColor.withOpacity(.1),
                     child: Text(
                       "BEGIN WORKOUT",
                       textScaleFactor: 2.0,
