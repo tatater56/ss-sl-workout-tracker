@@ -7,8 +7,18 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final _margins = 20.0;
+  final _padding = 20.0;
   final _mainColor = Colors.red[900];
-  final _decoration = BoxDecoration(color: Colors.white);
+  final _decoration = BoxDecoration(
+    color: Colors.white,
+    boxShadow: [
+      BoxShadow(
+        color: Colors.black.withOpacity(.2),
+        blurRadius: 8.0, // soften the shadow
+        offset: Offset(0, 4.0),
+      )
+    ],
+  );
 
   final _redText = TextStyle(color: Colors.red[900]);
   final _greenText = TextStyle(color: Colors.green[700]);
@@ -23,8 +33,8 @@ class _HomeViewState extends State<HomeView> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              buildLastWorkoutCard(),
-              buildNextWorkoutCard(),
+              _buildLastWorkoutBox(),
+              _buildNextWorkoutBox(),
             ],
           ),
         ),
@@ -32,21 +42,22 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Widget buildLastWorkoutCard() {
+  Widget _buildLastWorkoutBox() {
     return Container(
       decoration: _decoration,
       margin: EdgeInsets.only(bottom: _margins),
-      padding: EdgeInsets.all(_margins/2),
+      padding: EdgeInsets.all(_padding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text("Last Workout (5/24)", textScaleFactor: 1.2),
+          _buildBoxTitle("Last Workout (5/24)"),
+          SizedBox(height: _padding),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text("SQ 135 lb ✔", style: _greenText),
-              Text("BP 135 lb ✘", style: _redText),
-              Text("DL 135 lb ✔", style: _greenText),
+              _buildExerciseStatusText('SQ 135 lb', true),
+              _buildExerciseStatusText('BP 135 lb', false),
+              _buildExerciseStatusText('ROW 135 lb', true),
             ],
           ),
         ],
@@ -54,13 +65,72 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Widget buildNextWorkoutCard() {
+  Widget _buildNextWorkoutBox() {
     return Expanded(
       child: Container(
         decoration: _decoration,
-        padding: EdgeInsets.all(_margins/2),
-        child: Text("Next Workout", textScaleFactor: 1.2),
+        padding: EdgeInsets.all(_padding),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Expanded(child: _buildBoxTitle('Next Workout')),
+            //Spacer(),
+            Expanded(
+              child: Column(children: <Widget>[
+                _buildExerciseText("SQ", "5x5", "140 lb"),
+                _buildExerciseText("OHP", "5x5", "95 lb"),
+                _buildExerciseText("DL", "5x5", "185 lb"),
+              ]),
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Spacer(),
+                  MaterialButton(
+                    onPressed: () {},
+                    child: Text(
+                      "BEGIN WORKOUT",
+                      textScaleFactor: 2.0,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: _mainColor),
+                    ),
+                    height: 75,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
+  }
+
+  Widget _buildExerciseStatusText(String text, bool completed) {
+    if (completed)
+      return Text(text + ' ✔', style: _greenText, textScaleFactor: .8);
+    else
+      return Text(text + ' ✘', style: _redText, textScaleFactor: .8);
+  }
+
+  Widget _buildExerciseText(String ex, String sr, String wt) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: <Widget>[
+        _buildExpandedText(ex, TextAlign.left),
+        _buildExpandedText(sr, TextAlign.center),
+        _buildExpandedText(wt, TextAlign.right),
+      ],
+    );
+  }
+
+  Widget _buildExpandedText(String text, TextAlign align) {
+    return Expanded(
+      child: Text(text, textScaleFactor: 1.5, textAlign: align),
+    );
+  }
+
+  Widget _buildBoxTitle(String text) {
+    return Text(text, style: TextStyle(fontWeight: FontWeight.bold));
   }
 }
