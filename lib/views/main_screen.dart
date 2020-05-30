@@ -5,12 +5,12 @@ import 'main_pages/home.dart';
 import 'main_pages/history.dart';
 import 'main_pages/settings.dart';
 
-class MainScreen extends StatefulWidget {
+class MainScreenView extends StatefulWidget {
   @override
-  _MainScreenState createState() => _MainScreenState();
+  _MainScreenViewState createState() => _MainScreenViewState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _MainScreenViewState extends State<MainScreenView> {
   final String _appbarTitle = 'SS / SL Workout Tracker';
   int _pageIndex = 0;
   PageController _pageController;

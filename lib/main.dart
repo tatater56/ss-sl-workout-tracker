@@ -17,11 +17,11 @@ class _MyAppState extends State<MyApp> {
       ),
       debugShowCheckedModeBanner: false,
       title:  "SS/SL Workout Tracker",
-      home: MainScreen(),
+      home: MainScreenView(),
       routes: {
         // "/splash": (_) => Splash(),
         // "/workout": (_) => Workout(),
-        "/main_screen": (_) => MainScreen(),
+        "/main_screen": (_) => MainScreenView(),
       },
     );
   }
