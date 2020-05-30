@@ -66,44 +66,42 @@ class _HomeViewState extends State<HomeView> {
   }
 
   Widget _buildNextWorkoutBox() {
-    return Expanded(
-      child: Container(
-        decoration: _decoration,
-        padding: EdgeInsets.all(_padding),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Expanded(child: _buildBoxTitle('Next Workout')),
-            //Spacer(),
-            Expanded(
-              child: Column(children: <Widget>[
-                _buildExerciseText("SQ", "5x5", "140 lb"),
-                _buildExerciseText("OHP", "5x5", "95 lb"),
-                _buildExerciseText("DL", "5x5", "185 lb"),
-              ]),
-            ),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Spacer(),
-                  MaterialButton(
-                    onPressed: () {},
-                    splashColor: _mainColor.withOpacity(.1),
-                    highlightColor: _mainColor.withOpacity(.1),
-                    child: Text(
-                      "BEGIN WORKOUT",
-                      textScaleFactor: 2.0,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, color: _mainColor),
-                    ),
-                    height: 75,
-                  ),
-                ],
+    return Container(
+      decoration: _decoration,
+      padding: EdgeInsets.all(_padding),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          _buildBoxTitle('Next Workout'),
+          SizedBox(height: _padding),
+          Center(
+            child: Column(children: <Widget>[
+              _buildExerciseText("SQ", "5x5", "140 lb"),
+              SizedBox(height: 5),
+              _buildExerciseText("OHP", "5x5", "95 lb"),
+              SizedBox(height: 5),
+              _buildExerciseText("DL", "5x5", "185 lb"),
+            ]),
+          ),
+          SizedBox(height: _padding),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              MaterialButton(
+                onPressed: () {},
+                splashColor: _mainColor.withOpacity(.1),
+                highlightColor: _mainColor.withOpacity(.1),
+                child: Text(
+                  "BEGIN WORKOUT",
+                  textScaleFactor: 2.0,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: _mainColor),
+                ),
+                height: 75,
               ),
-            ),
-          ],
-        ),
+            ],
+          ),
+        ],
       ),
     );
   }
