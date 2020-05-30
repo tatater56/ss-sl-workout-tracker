@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 
-import 'views/home.dart';
-import 'views/history.dart';
-import 'views/settings.dart';
+import 'views/main_pages/home.dart';
+import 'views/main_pages/history.dart';
+import 'views/main_pages/settings.dart';
 
 void main() => runApp(MyApp());
 
