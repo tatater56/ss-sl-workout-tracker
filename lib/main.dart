@@ -27,11 +27,12 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        textTheme: TextTheme(bodyText2: TextStyle(fontSize: 16.0)),
+        textTheme: TextTheme(bodyText2: TextStyle(fontSize: 20.0)),
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text(_appbarTitle, style: TextStyle(fontSize: 24.0)),
+          title: Text(_appbarTitle,
+              style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold)),
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
