@@ -32,26 +32,18 @@ class _MainScreenViewState extends State<MainScreenView> {
       ),
       extendBodyBehindAppBar: true,
       extendBody: true,
-      body: Center(
-        child: PageView(
-          controller: _pageController,
-          onPageChanged: (index) {
-            setState(() => _pageIndex = index);
-          },
-          children: <Widget>[
-            HomeView(),
-            HistoryView(),
-            SettingsView(),
-          ],
-        ),
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: (index) {
+          setState(() => _pageIndex = index);
+        },
+        children: <Widget>[
+          HomeView(),
+          HistoryView(),
+          SettingsView(),
+        ],
       ),
       bottomNavigationBar: BottomNavyBar(
-        selectedIndex: _pageIndex,
-        onItemSelected: (index) {
-          setState(() => _pageIndex = index);
-          _pageController.animateToPage(index,
-              duration: Duration(milliseconds: 270), curve: Curves.ease);
-        },
         backgroundColor: Colors.transparent,
         showElevation: false,
         curve: Curves.ease,
@@ -61,6 +53,12 @@ class _MainScreenViewState extends State<MainScreenView> {
           buildBottomNavyBarItem(Icons.history, 'HISTORY'),
           buildBottomNavyBarItem(Icons.settings, 'SETTINGS'),
         ],
+        selectedIndex: _pageIndex,
+        onItemSelected: (index) {
+          setState(() => _pageIndex = index);
+          _pageController.animateToPage(index,
+              duration: Duration(milliseconds: 270), curve: Curves.ease);
+        },
       ),
     );
   }
