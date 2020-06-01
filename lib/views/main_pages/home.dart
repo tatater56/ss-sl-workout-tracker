@@ -117,16 +117,10 @@ class _HomeViewState extends State<HomeView> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
-        _buildExpandedText(ex, TextAlign.left),
-        _buildExpandedText(sr, TextAlign.center),
-        _buildExpandedText(wt, TextAlign.right),
+        Expanded(child: Text(ex, textAlign: TextAlign.left)),
+        Expanded(child: Text(sr, textAlign: TextAlign.center)),
+        Expanded(child: Text(wt, textAlign: TextAlign.right)),
       ],
-    );
-  }
-
-  Widget _buildExpandedText(String text, TextAlign align) {
-    return Expanded(
-      child: Text(text, textScaleFactor: 1.5, textAlign: align),
     );
   }
 
