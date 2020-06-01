@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:ss_sl_workout_tracker/bottom_navy_bar/bottom_navy_bar.dart';
 
 import 'main_pages/home.dart';
 import 'main_pages/history.dart';
