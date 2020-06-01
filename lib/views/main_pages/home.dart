@@ -50,7 +50,7 @@ class _HomeViewState extends State<HomeView> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          _buildBoxTitle("Last Workout (5/24)"),
+          _buildBoxTitle('Last Workout (5/24)'),
           SizedBox(height: _padding),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -76,11 +76,11 @@ class _HomeViewState extends State<HomeView> {
           SizedBox(height: _padding),
           Center(
             child: Column(children: <Widget>[
-              _buildExerciseText("SQ", "5x5", "140 lb"),
+              _buildExerciseText('SQ', '5x5', '140 lb'),
               SizedBox(height: 5),
-              _buildExerciseText("OHP", "5x5", "95 lb"),
+              _buildExerciseText('OHP', '5x5', '95 lb'),
               SizedBox(height: 5),
-              _buildExerciseText("DL", "5x5", "185 lb"),
+              _buildExerciseText('DL', '5x5', '185 lb'),
             ]),
           ),
           SizedBox(height: _padding),
@@ -92,7 +92,7 @@ class _HomeViewState extends State<HomeView> {
                 splashColor: _mainColor.withOpacity(.1),
                 highlightColor: _mainColor.withOpacity(.1),
                 child: Text(
-                  "BEGIN WORKOUT",
+                  'BEGIN WORKOUT',
                   textScaleFactor: 2.0,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: _mainColor),
