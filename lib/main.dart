@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ss_sl_workout_tracker/views/main_screen.dart';
+
+import 'views/main_screen.dart';
+import 'views/workout.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,7 +22,7 @@ class _MyAppState extends State<MyApp> {
       home: MainScreenView(),
       routes: {
         // "/splash": (_) => Splash(),
-        // "/workout": (_) => Workout(),
+        "/workout": (_) => WorkoutView(),
         "/main_screen": (_) => MainScreenView(),
       },
     );

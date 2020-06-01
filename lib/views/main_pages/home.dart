@@ -88,7 +88,9 @@ class _HomeViewState extends State<HomeView> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, "/workout");
+                },
                 splashColor: _mainColor.withOpacity(.1),
                 highlightColor: _mainColor.withOpacity(.1),
                 child: Text(
